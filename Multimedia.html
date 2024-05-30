@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="Multimedia.css" rel="stylesheet" type="text/css">
+</head>
+
+<body> 
+    <h2>Unsere Erfahrung mit dem Kurzfilm aufnehmen!</h2>
+    <div id="Inhaltsverzeichnis">
+    <h3>Inhaltsverzeichnis</h3><ul>
+    <li><a href="#Ideen">Ideen finden</a></li>
+    <li><a href="#Planung">Planung</a></li>
+    <li><a href="#Umsetzung">Umsetzung</a></li>
+    </ul></div>
+    
+    <section>
+        <h4 id="Ideen">Ideen finden</h4>
+        <p>Lorem ipsum dolor sit <a id="a" target="_blank" href="guiro.wav"> amet </a>, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+
+    </section>
+    
+    <section>
+        <h4 id="Planung">Erste Planung</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+        
+        <h4>Hier ein kleiner Quiz: Womit haben wir angefangen?</h4>
+        <div id="draggable">
+            <div class="d" draggable="true">Brainstorm</div>
+            <div class="d" draggable="true">Storyboard</div>
+            <div class="d" draggable="true">Moodboard</div>
+        </div><br>
+
+        <div id="drop">Hier her ziehen!</div>
+        <div id="info"></div>
+    </section>
+    
+    <section>
+        <h4 id="Umsetzung">Umsetzung</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+            <figure>
+                <audio controls src="morning bird.wav"></audio>
+                <figcaption>Erste Aufnahmen aus der Natur!</figcaption>
+            </figure>
+    </section>
+ 
+<script>
+    const droppedStuff = [];
+    const draggableItems = document.querySelectorAll("#draggable *");
+    const dropBox = document.querySelector("#drop");
+    const info = document.querySelector("#info");
+    
+    draggableItems.forEach(function (element) {
+        element.addEventListener("dragstart", function(e) {
+            e.dataTransfer.setData("text/plain", e.target.innerText);
+        });
+    });
+    
+    dropBox.addEventListener("dragover", function (e) {
+        e.preventDefault();
+    });
+    
+    dropBox.addEventListener("drop", function (dropEvent) {
+        droppedStuff.push(dropEvent.dataTransfer.getData("text/plain"));
+        info.innerText = "Du hast nun folgende Menge reingezogen: " + droppedStuff.length + ". Das sind die folgenden: " + droppedStuff;
+    });
+    
+    for (const link of document.querySelector("#a")) {
+        document.createElement("audio").src = link.href;
+        link.classList.add("upgraded-a");
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            audioElement.play();
+        });
+        document.body.appendChild(audioElement);  
+    }
+</script>
+    
+</body>
+</html>
